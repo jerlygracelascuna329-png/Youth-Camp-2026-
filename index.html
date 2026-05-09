@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Youth Camp 2026 - Harvest Time Temple Tubod</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 50%, #FF8C00 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="%23FFFFFF" opacity="0.1"/><circle cx="75" cy="75" r="1.5" fill="%23FFFFFF" opacity="0.1"/><circle cx="50" cy="10" r="0.8" fill="%23FFFFFF" opacity="0.15"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            animation: grain 0.2s steps(10) infinite;
+        }
+
+        @keyframes grain {
+            0%, 100% { transform: translate(0, 0); }
+            10% { transform: translate(-5%, -5%); }
+            20% { transform: translate(-10%, 5%); }
+            30% { transform: translate(5%, -10%); }
+            40% { transform: translate(-5%, 15%); }
+            50% { transform: translate(-10%, 5%); }
+            60% { transform: translate(15%, 0%); }
+            70% { transform: translate(0%, 15%); }
+            80% { transform: translate(-15%, 0%); }
+            90% { transform: translate(10%, -10%); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-weight: 700;
+            color: #1a1a1a;
+            text-shadow: 3px 3px 0px #000;
+            margin-bottom: 1rem;
+            animation: bounceIn 1.5s ease-out;
+        }
+
+        @keyframes bounceIn {
+            0% { transform: scale(0.3); opacity: 0; }
+            50% { transform: scale(1.05); }
+            70% { transform: scale(0.9); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .hero .date {
+            font-size: clamp(1.5rem, 4vw, 3rem);
+            font-weight: 600;
+            color: #000;
+            background: rgba(255,255,255,0.9);
+            padding: 15px 30px;
+            border-radius: 50px;
+            display: inline-block;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            animation: slideUp 1s ease-out 0.5s both;
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        /* Main Content */
+        .main-content {
+            background: #000;
+            color: #FFD700;
+            padding: 80px 0;
+        }
+
+        .section {
+            padding: 60px 0;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            border-radius: 2px;
+        }
+
+        /* Schedule */
+        .schedule-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .schedule-item {
+            background: rgba(255,215,0,0.1);
+            padding: 30px;
+            border-radius: 20px;
+            border: 2px solid rgba(255,215,0,0.3);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .schedule-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .schedule-item:hover::before {
+            left: 100%;
+        }
+
+        .schedule-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(255,215,0,0.3);
+            border-color: #FFD700;
+        }
+
+        .time {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #FFD700;
+            margin-bottom: 10px;
+        }
+
+        /* Highlights */
+        .highlights {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .highlight-card {
+            background: rgba(255,215,0,0.05);
+            padding: 40px 30px;
+            border-radius: 20px;
+            text-align: center;
+            border: 2px solid rgba(255,215,0,0.2);
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+
+        .highlight-card:hover {
+            background: rgba(255,215,0,0.15);
+            transform: translateY(-5px);
+            border-color: #FFD700;
+        }
+
+        .highlight-icon {
+            font-size: 3rem;
+            color: #FFD700;
+            margin-bottom: 20px;
+        }
+
+        /* Location */
+        .location {
+            text-align: center;
+            background: rgba(255,215,0,0.1);
+            padding: 60px 40px;
+            border-radius: 30px;
+            border: 3px solid rgba(255,215,0,0.3);
+            margin-top: 60px;
+        }
+
+        .location i {
+            font-size: 4rem;
+            color: #FFD700;
+            margin-bottom: 20px;
+        }
+
+        /* CTA */
+        .cta {
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+            color: #000;
+            text-align: center;
+            padding: 80px 40px;
+            margin: 80px 0;
+            border-radius: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta h2 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .cta p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+        }
+
+        /* Footer */
+        .footer {
+            background: #1a1a1a;
+            color: #FFD700;
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .section-title { font-size: 2rem; }
+            .cta h2 { font-size: 2.5rem; }
+            .schedule-grid { grid-template-columns: 1fr; }
+        }
+
+        /* Scroll animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>YOUTH CAMP 2026</h1>
+            <div class="date">
+                <i class="fas fa-calendar-alt"></i> MAY 14-15, 2026
+            </div>
+            <h2 style="color: #000; font-size: clamp(1.5rem, 3vw, 2.5rem); font-weight: 600;">
+                Harvest Time Temple Tubod
+            </h2>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="main-content">
+        <div class="container">
+            
+            <!-- Welcome Section -->
+            <div class="section reveal">
+                <h2 class="section-title">🌟 WELCOME MESSAGE</h2>
+                <div style="max-width: 800px; margin: 0 auto; text-align: center; font-size: 1.2rem; line-height: 1.8;">
+                    <p>Dear Youth of Harvest Time Temple,</p>
+                    <br>
+                    <p>You're cordially invited to our most exciting <strong>Youth Camp 2026</strong>! This is your time to grow in faith, make new friends, and experience God's presence like never before!</p>
+                    <br>
+                    <p>Mark your calendars and prepare your hearts for two days filled with worship, fun, and spiritual growth!</p>
+                </div>
+            </div>
+
+            <!-- Schedule Section -->
+            <div class="section reveal">
+                <h2 class="section-title">📅 DETAILED SCHEDULE</h2>
+                <div class="schedule-grid">
+                    <div class="schedule-item">
+                        <div class="time">MAY 14, 2026 (THURSDAY)</div>
+                        <div><strong>3:00 PM</strong> - Registration & Ice Breakers</div>
+                        <div><strong>5:00 PM</strong> - Dinner & Fellowship</div>
+                        <div><strong>6:30 PM</strong> - Worship Night</div>
+                        <div><strong>8:30 PM</strong> - Youth Rally (Speaker: Ptr. John Cruz)</div>
+                        <div><strong>10:00 PM</strong> - Campfire & Games</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="time">MAY 15, 2026 (FRIDAY)</div>
+                        <div><strong>6:00 AM</strong> - Sunrise Worship & Prayer</div>
+                        <div><strong>7:30 AM</strong> - Breakfast</div>
+                        <div><strong>9:00 AM</strong> - Morning Seminar 1</div>
+                        <div><strong>11:00 AM</strong> - Team Building Games</div>
+                        <div><strong>12:30 PM</strong> - Lunch</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="time">CONTINUED...</div>
+                        <div><strong>2:00 PM</strong> - Morning Seminar 2</div>
+                        <div><strong>4:00 PM</strong> - Worship & Altar Call</div>
+                        <div><strong>5:30 PM</strong> - Dinner</div>
+                        <div><strong>6:30 PM</strong> - Closing Program & Awards</div>
+                        <div><strong>8:00 PM</strong> - Camp Ends</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Highlights Section -->
+            <div class="section reveal">
+                <h2 class="section-title">✨ WHAT TO EXPECT</h2>
+                <div class="highlights">
+                    <div class="highlight-card">
+                        <div class="highlight-icon"><i class="fas fa-fire"></i></div>
+                        <h3>POWERFUL WORSHIP</h3>
+                        <p>Live worship sessions that will ignite your spirit</p>
+                    </div>
+                    <div class="highlight-card">
+                        <div class="highlight-icon"><i class="fas fa-microphone-alt"></i></div>
+                        <h3>INSPIRING SPEAKERS</h3>
+                        <p>Dynamic preaching from anointed youth speakers</p>
+                    </div>
+                    <div class="highlight-card">
+                        <div class="highlight-icon"><i class="fas fa-users"></i></div>
+                        <h3>FELLOWSHIP</h3>
+                        <p>Connect with youth from all over the region</p>
+                    </div>
+                    <div class="highlight-card">
+                        <div class="highlight-icon"><i class="fas fa-gamepad"></i></div>
+                        <h3>FUN ACTIVITIES</h3>
+                        <p>Team games, campfires, and exciting competitions</p>
+                    </div>
+                    <div class="highlight-card">
+                        <div class="highlight-icon"><i class="fas fa-pray"></i></div>
+                        <h3>PRAYER & MINISTRY</h3>
+                        <p>Personal ministry time and prayer sessions</p>
+                    </div>
+                    <div class="highlight-card">
+                        <div class="highlight-icon"><i class="fas fa-bible"></i></div>
+                        <h3>BIBLE TEACHING</h3>
+                        <p>Practical teachings for youth today</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Location Section -->
+            <div class="section reveal">
+                <div class="location">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h2 style="font-size: 2.5rem; margin-bottom: 20px;">Harvest Time Temple Tubod</h2>
+                    <p style="font-size: 1.3rem; margin-bottom: 10px;">
+                        Brgy. Poblacion, Tubod, Lanao del Norte
+                    </p>
+                    <p style="font-size: 1.1rem;">
+                        Look for the YELLOW & BLACK banners! 🚩
+                    </p>
+                </div>
+            </div>
+
+            <!-- Important Info -->
+            <div class="section reveal">
+                <h2 class="section-title">ℹ️ IMPORTANT INFORMATION</h2>
+                <div style="background: rgba(255,215,0,0.1); padding: 40px; border-radius: 20px; border-left: 6px solid #FFD700;">
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; font-size: 1.1rem;">
+                        <div>
+                            <h3 style="color: #FFD700; margin-bottom: 15px;"><i class="fas fa-child"></i> AGES</h3>
+                            <p>Youth 13-25 years old</p>
+                        </div>
+                        <div>
+                            <h3 style="color: #FFD700; margin-bottom: 15px;"><i class="fas fa-utensils"></i> MEALS</h3>
+                            <p>All meals provided (Thu dinner - Fri dinner)</p>
+                        </div>
+                        <div>
+                            <h3 style="color: #FFD700; margin-bottom: 15px;"><i class="fas fa-tshirt"></i> WHAT TO BRING</h3>
+                            <p>Bible, notebook, water bottle, extra clothes, sleeping bag</p>
+                        </div>
+                        <div>
+                            <h3 style="color: #FFD700; margin-bottom: 15px;"><i class="fas fa-dollar-sign"></i> COST</h3>
+                            <p><strong>FREE!</strong> No registration fee</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>SEE YOU THERE!</h2>
+                <p style="font-size: 1.5rem; font-weight: 300;">
+                    Spread the word! Bring your friends!<br>
+                    This is going to be EPIC! 🔥
+                </p>
+                <div style="font-size: 4rem; margin-top: 20px;">
+                    🙌 #YouthCamp2026 #HarvestTimeYouth 🙌
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Harvest Time Temple Tubod Youth Ministry</p>
+            <p style="margin-top: 10px; font-size: 0.9rem;">For inquiries: 0917-xxx-xxxx | youth@harvesttimetubod.org</p>
+        </div>
+    </footer>
+
+    <script>
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Parallax effect for hero
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            if (hero) {
+                hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
